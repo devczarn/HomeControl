@@ -13,6 +13,13 @@
 		6B53AD8F296C81890006B1B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B53AD8D296C81890006B1B6 /* Main.storyboard */; };
 		6B53AD91296C818B0006B1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B53AD90296C818B0006B1B6 /* Assets.xcassets */; };
 		6B53AD94296C818B0006B1B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B53AD92296C818B0006B1B6 /* LaunchScreen.storyboard */; };
+		6B53AD9D296C89640006B1B6 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6B53AD9C296C89640006B1B6 /* Lottie */; };
+		6B53ADA1296C8D650006B1B6 /* HomeControl.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B53ADA0296C8D650006B1B6 /* HomeControl.json */; };
+		6B53ADA3296C965C0006B1B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B53ADA2296C965C0006B1B6 /* HomeViewController.swift */; };
+		6B53ADA6296C96D70006B1B6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6B53ADA5296C96D70006B1B6 /* Alamofire */; };
+		6BA467912974440500CDEFC0 /* CategoriesCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA467902974440500CDEFC0 /* CategoriesCustomCell.swift */; };
+		6BA4679329744C0700CDEFC0 /* PopularCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA4679229744C0700CDEFC0 /* PopularCustomCell.swift */; };
+		6BABB7A1296CDE400003516F /* DataCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BABB7A0296CDE400003516F /* DataCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,11 @@
 		6B53AD90296C818B0006B1B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B53AD93296C818B0006B1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B53AD95296C818B0006B1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B53ADA0296C8D650006B1B6 /* HomeControl.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomeControl.json; sourceTree = "<group>"; };
+		6B53ADA2296C965C0006B1B6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6BA467902974440500CDEFC0 /* CategoriesCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCustomCell.swift; sourceTree = "<group>"; };
+		6BA4679229744C0700CDEFC0 /* PopularCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCustomCell.swift; sourceTree = "<group>"; };
+		6BABB7A0296CDE400003516F /* DataCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B53AD9D296C89640006B1B6 /* Lottie in Frameworks */,
+				6B53ADA6296C96D70006B1B6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +77,11 @@
 				6B53AD90296C818B0006B1B6 /* Assets.xcassets */,
 				6B53AD92296C818B0006B1B6 /* LaunchScreen.storyboard */,
 				6B53AD95296C818B0006B1B6 /* Info.plist */,
+				6B53ADA0296C8D650006B1B6 /* HomeControl.json */,
+				6B53ADA2296C965C0006B1B6 /* HomeViewController.swift */,
+				6BABB7A0296CDE400003516F /* DataCustomCell.swift */,
+				6BA467902974440500CDEFC0 /* CategoriesCustomCell.swift */,
+				6BA4679229744C0700CDEFC0 /* PopularCustomCell.swift */,
 			);
 			path = HomeControl;
 			sourceTree = "<group>";
@@ -83,6 +102,10 @@
 			dependencies = (
 			);
 			name = HomeControl;
+			packageProductDependencies = (
+				6B53AD9C296C89640006B1B6 /* Lottie */,
+				6B53ADA5296C96D70006B1B6 /* Alamofire */,
+			);
 			productName = HomeControl;
 			productReference = 6B53AD84296C81890006B1B6 /* HomeControl.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +134,10 @@
 				Base,
 			);
 			mainGroup = 6B53AD7B296C81890006B1B6;
+			packageReferences = (
+				6B53AD9B296C89640006B1B6 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				6B53ADA4296C96D70006B1B6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 6B53AD85296C81890006B1B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +154,7 @@
 			files = (
 				6B53AD94296C818B0006B1B6 /* LaunchScreen.storyboard in Resources */,
 				6B53AD91296C818B0006B1B6 /* Assets.xcassets in Resources */,
+				6B53ADA1296C8D650006B1B6 /* HomeControl.json in Resources */,
 				6B53AD8F296C81890006B1B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BA4679329744C0700CDEFC0 /* PopularCustomCell.swift in Sources */,
+				6BA467912974440500CDEFC0 /* CategoriesCustomCell.swift in Sources */,
 				6B53AD8C296C81890006B1B6 /* ViewController.swift in Sources */,
 				6B53AD88296C81890006B1B6 /* AppDelegate.swift in Sources */,
 				6B53AD8A296C81890006B1B6 /* SceneDelegate.swift in Sources */,
+				6BABB7A1296CDE400003516F /* DataCustomCell.swift in Sources */,
+				6B53ADA3296C965C0006B1B6 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +327,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,6 +356,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +392,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6B53AD9B296C89640006B1B6 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 3.5.0;
+			};
+		};
+		6B53ADA4296C96D70006B1B6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = exactVersion;
+				version = 5.6.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6B53AD9C296C89640006B1B6 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B53AD9B296C89640006B1B6 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		6B53ADA5296C96D70006B1B6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B53ADA4296C96D70006B1B6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6B53AD7C296C81890006B1B6 /* Project object */;
 }
