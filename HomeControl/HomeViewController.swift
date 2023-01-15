@@ -39,6 +39,7 @@ class HomeViewController:UIViewController{
         
         view.addSubview(tableView)
         tableView.frame = view.bounds
+        tableView.allowsSelection = false
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
     }
