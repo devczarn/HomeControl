@@ -14,7 +14,6 @@ class DataCustomCell: UITableViewCell {
     
     lazy var viewGeneralContainer: UIView = {
         let view = UIView()
-        view.layer.backgroundColor = UIColor.blue.cgColor
         view.layer.cornerRadius = 30
         return view
     }()
@@ -103,11 +102,15 @@ class DataCustomCell: UITableViewCell {
     func setupCell(){
         
         contentView.addSubview(viewGeneralContainer)
+        viewGeneralContainer.frame = contentView.bounds
         viewGeneralContainer.translatesAutoresizingMaskIntoConstraints = false
         viewGeneralContainer.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         viewGeneralContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         viewGeneralContainer.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -40).isActive = true
         viewGeneralContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -32).isActive = true
+         
+        let layerBack = setGradientBackground(container: viewGeneralContainer)
+        
         
         viewGeneralContainer.addSubview(avatar)
         avatar.translatesAutoresizingMaskIntoConstraints = false
@@ -151,11 +154,24 @@ class DataCustomCell: UITableViewCell {
         lblLastSession.leadingAnchor.constraint(equalTo: lblDay.leadingAnchor).isActive = true
     }
     
-    func setGradientBackground(){
+    func setGradientBackground(container: UIView) -> CAGradientLayer{
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = viewGeneralContainer.bounds
-        gradientLayer.colors = [UIColor(red: 0.79, green: 0.69, blue: 0.99, alpha: 1.00).cgColor, UIColor(red: 0.42, green: 0.19, blue: 1.00, alpha: 1.00).cgColor]
+        print("::: \(container.bounds)")
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: (container.frame.width + 18), height: 170)
+        gradientLayer.colors = [UIColor(red: 0.79, green: 0.69, blue: 0.99, alpha: 1.00).cgColor,
+                                UIColor(red: 0.42, green: 0.19, blue: 1.00, alpha: 1.00).cgColor]
         gradientLayer.locations = [0.0, 1.0]
-        viewGeneralContainer.layer.insertSublayer(gradientLayer, at:0)
+        container.layer.insertSublayer(gradientLayer, at: 0)
+        gradientLayer.cornerRadius = 30
+        return gradientLayer
     }
+    
+    
+//    func setGradientBackground(){
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.frame = view.bounds
+//        gradientLayer.colors = [UIColor(red: 0.93, green: 0.92, blue: 0.88, alpha: 1.00).cgColor, UIColor.purple.cgColor]
+//        gradientLayer.locations = [0.0, 1.0]
+//        view.layer.insertSublayer(gradientLayer, at:0)
+//    }
 }
