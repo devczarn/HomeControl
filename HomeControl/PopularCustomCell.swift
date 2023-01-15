@@ -10,7 +10,7 @@ import Alamofire
 
 class PopularCustomCell: UITableViewCell {
 
-    static let identifier = "CustomCell"
+    static let identifier = "PopularCustomCell"
     
     lazy var viewGeneralContainer: UIView = {
         let view = UIView()
@@ -106,4 +106,6 @@ class PopularCustomCell: UITableViewCell {
     }
     
 }
+
+
 

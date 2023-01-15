@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let mainNC = UINavigationController()
         let mainView = ViewController()
-        
         guard let window = window else { return }
         mainNC.viewControllers = [mainView]
         window.rootViewController = mainNC
