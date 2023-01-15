@@ -157,7 +157,7 @@ class DataCustomCell: UITableViewCell {
     func setGradientBackground(container: UIView) -> CAGradientLayer{
         let gradientLayer = CAGradientLayer()
         print("::: \(container.bounds)")
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: (container.frame.width + 18), height: 170)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: (container.frame.width * 1.1), height: 170)
         gradientLayer.colors = [UIColor(red: 0.79, green: 0.69, blue: 0.99, alpha: 1.00).cgColor,
                                 UIColor(red: 0.42, green: 0.19, blue: 1.00, alpha: 1.00).cgColor]
         gradientLayer.locations = [0.0, 1.0]
