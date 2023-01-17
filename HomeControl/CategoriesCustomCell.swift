@@ -10,7 +10,7 @@ import Alamofire
 
 class CategoriesCustomCell: UITableViewCell {
 
-    static let identifier = "CustomCell"
+    static let identifier = "CategoriesCustomCell"
     
     lazy var viewGeneralContainer: UIView = {
         let view = UIView()

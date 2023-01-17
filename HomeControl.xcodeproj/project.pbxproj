@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20CD909B29747436009253B9 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CD909A29747436009253B9 /* UIViewControllerExtension.swift */; };
 		6B53AD88296C81890006B1B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B53AD87296C81890006B1B6 /* AppDelegate.swift */; };
 		6B53AD8A296C81890006B1B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B53AD89296C81890006B1B6 /* SceneDelegate.swift */; };
 		6B53AD8C296C81890006B1B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B53AD8B296C81890006B1B6 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20CD909A29747436009253B9 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		6B53AD84296C81890006B1B6 /* HomeControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B53AD87296C81890006B1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B53AD89296C81890006B1B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 		6B53AD7B296C81890006B1B6 = {
 			isa = PBXGroup;
 			children = (
+				20CD909A29747436009253B9 /* UIViewControllerExtension.swift */,
 				6B53AD86296C81890006B1B6 /* HomeControl */,
 				6B53AD85296C81890006B1B6 /* Products */,
 			);
@@ -170,6 +173,7 @@
 				6BA467912974440500CDEFC0 /* CategoriesCustomCell.swift in Sources */,
 				6B53AD8C296C81890006B1B6 /* ViewController.swift in Sources */,
 				6B53AD88296C81890006B1B6 /* AppDelegate.swift in Sources */,
+				20CD909B29747436009253B9 /* UIViewControllerExtension.swift in Sources */,
 				6B53AD8A296C81890006B1B6 /* SceneDelegate.swift in Sources */,
 				6BABB7A1296CDE400003516F /* DataCustomCell.swift in Sources */,
 				6B53ADA3296C965C0006B1B6 /* HomeViewController.swift in Sources */,

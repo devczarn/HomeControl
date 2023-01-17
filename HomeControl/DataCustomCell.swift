@@ -10,7 +10,7 @@ import Alamofire
 
 class DataCustomCell: UITableViewCell {
 
-    static let identifier = "CustomCell"
+    static let identifier = "DataCustomCell"
     
     lazy var viewGeneralContainer: UIView = {
         let view = UIView()
