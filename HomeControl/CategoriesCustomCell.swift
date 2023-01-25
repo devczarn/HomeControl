@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Lottie
 
 class CategoriesCustomCell: UITableViewCell {
 
@@ -14,7 +15,6 @@ class CategoriesCustomCell: UITableViewCell {
     
     lazy var viewGeneralContainer: UIView = {
         let view = UIView()
-        //view.layer.backgroundColor = UIColor.blue.cgColor
         return view
     }()
     
@@ -59,8 +59,6 @@ class CategoriesCustomCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-       // contentView.backgroundColor = .purple
         setupCell()
     }
     
@@ -104,5 +102,4 @@ class CategoriesCustomCell: UITableViewCell {
         btnOptional.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
     }
-    
 }

@@ -13,6 +13,7 @@ class HomeViewController:UIViewController{
     
     var tableView = UITableView()
     var activeSection = 0
+    
     override func viewDidLoad() {
       super.viewDidLoad()
         
@@ -26,11 +27,8 @@ class HomeViewController:UIViewController{
         view.backgroundColor = UIColor(red: 0.93, green: 0.92, blue: 0.88, alpha: 1.00)
         tableView.delegate = self
         tableView.dataSource = self
-//        //Data
         tableView.register(DataCustomCell.self, forCellReuseIdentifier: DataCustomCell.identifier)
-//        //Categorias
         tableView.register(CategoriesCustomCell.self, forCellReuseIdentifier: CategoriesCustomCell.identifier)
-//        //Ppular
         tableView.register(PopularCustomCell.self, forCellReuseIdentifier: PopularCustomCell.identifier)
         
         view.addSubview(tableView)
@@ -78,8 +76,7 @@ extension HomeViewController:UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // let team = TeamViewController(team: dataPlayers)
-        //navigationController?.pushViewController(team, animated: true)
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

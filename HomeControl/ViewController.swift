@@ -81,12 +81,14 @@ class ViewController: UIViewController {
     }
     
     @objc func goToHome(){
-        let vc = HomeViewController()
-        navigationController?.pushViewController(vc, animated: true)
-//        vc.modalPresentationStyle = .fullScreen
-//        self.present(vc, animated: true)
+//        let vc = HomeViewController()
+//        navigationController?.pushViewController(vc, animated: true)
+//
+//        let vc = ViewCategories()
+//        navigationController?.pushViewController(vc, animated: true)
         
- 
-    }
+        let vc = ViewNotifications()
+        navigationController?.pushViewController(vc, animated: true)
+   }
 }
 

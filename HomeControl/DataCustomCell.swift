@@ -165,13 +165,4 @@ class DataCustomCell: UITableViewCell {
         gradientLayer.cornerRadius = 30
         return gradientLayer
     }
-    
-    
-//    func setGradientBackground(){
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.frame = view.bounds
-//        gradientLayer.colors = [UIColor(red: 0.93, green: 0.92, blue: 0.88, alpha: 1.00).cgColor, UIColor.purple.cgColor]
-//        gradientLayer.locations = [0.0, 1.0]
-//        view.layer.insertSublayer(gradientLayer, at:0)
-//    }
 }
