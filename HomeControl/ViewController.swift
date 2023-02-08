@@ -81,13 +81,7 @@ class ViewController: UIViewController {
     }
     
     @objc func goToHome(){
-//        let vc = HomeViewController()
-//        navigationController?.pushViewController(vc, animated: true)
-//
-//        let vc = ViewCategories()
-//        navigationController?.pushViewController(vc, animated: true)
-        
-        let vc = ViewNotifications()
+        let vc = HomeViewController()
         navigationController?.pushViewController(vc, animated: true)
    }
 }

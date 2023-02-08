@@ -2,7 +2,7 @@
 //  WeekNotificationCustomCell.swift
 //  HomeControl
 //
-//  Created by Cesar  Perez Catalan on 24/01/23.
+//  Created by Cesar  Perez Catalan on 07/02/23.
 //
 
 import UIKit
@@ -12,55 +12,55 @@ class WeekNotificationCustomCell: UITableViewCell {
 
     static let identifier = "WeekNotificationCustomCell"
     
-    var msgWeek = [String]()
-    var timeWeek = [String]()
+    var tableView = UITableView()
     
-    lazy var viewGeneralContainer: UIView = {
-        let view = UIView()
-        return view
-    }()
-    
-    lazy var lblPopular: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.textAlignment = .left
-        label.text = "3"
-        label.font = UIFont(name: "Arial-BoldMT", size: 24)
-        return label
-    }()
-    
+    let titulo = ["Prepárate para el regreso a clases","Tu horario está confirmado, échale un vistazo"]
+    let subTitulo = ["Martes","Martes"]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setupCell()
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(msgWeek: [String],timeWeek: [String]){
-        self.msgWeek = msgWeek
-        self.timeWeek = timeWeek
-    }
-    
     func setupCell(){
         
-        contentView.addSubview(viewGeneralContainer)
-        viewGeneralContainer.translatesAutoresizingMaskIntoConstraints = false
-        viewGeneralContainer.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        viewGeneralContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        viewGeneralContainer.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -40).isActive = true
-        viewGeneralContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -32).isActive = true
-        
-        viewGeneralContainer.addSubview(lblPopular)
-        lblPopular.translatesAutoresizingMaskIntoConstraints = false
-        lblPopular.leadingAnchor.constraint(equalTo: viewGeneralContainer.leadingAnchor, constant: 10).isActive = true
-        lblPopular.topAnchor.constraint(equalTo: viewGeneralContainer.topAnchor, constant: 10).isActive = true
-        
-        
-       
+        tableView.delegate = self
+        tableView.dataSource = self
+        contentView.addSubview(tableView)
+        tableView.frame = CGRect(x: 0, y: 0, width: 350, height: 300)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(ViewNotificationCustomCell.self, forCellReuseIdentifier: ViewNotificationCustomCell.identifier)
+        tableView.separatorStyle = .singleLine
     }
-    
 }
 
+extension WeekNotificationCustomCell: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titulo.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ViewNotificationCustomCell.identifier, for: indexPath) as? ViewNotificationCustomCell else {
+            return UITableViewCell()
+        }
+        let titulo = titulo[indexPath.row]
+        let subTitulo = subTitulo[indexPath.row]
+        cell.configure(titulo: titulo, subtitulo: subTitulo)
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+
+}

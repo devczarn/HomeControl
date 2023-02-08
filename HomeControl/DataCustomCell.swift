@@ -11,6 +11,7 @@ import Alamofire
 class DataCustomCell: UITableViewCell {
 
     static let identifier = "DataCustomCell"
+    var delegate: HomeViewProtocool?
     
     lazy var viewGeneralContainer: UIView = {
         let view = UIView()
@@ -68,7 +69,10 @@ class DataCustomCell: UITableViewCell {
         img.contentMode = .scaleAspectFit
         img.clipsToBounds = true
         img.backgroundColor = .white
-        img.image = UIImage(named: "avatar")
+        img.image = UIImage(named: "Item_1")
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.goToProfileInformation))
+        img.addGestureRecognizer(tapGR)
+        img.isUserInteractionEnabled = true
         return img
     }()
     
@@ -77,7 +81,10 @@ class DataCustomCell: UITableViewCell {
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
         img.backgroundColor = .white
-        img.image = UIImage(named: "notification")
+        img.image = UIImage(named: "Item_4")
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.goToNotificationInformation))
+        img.addGestureRecognizer(tapGR)
+        img.isUserInteractionEnabled = true
         return img
     }()
     
@@ -109,7 +116,7 @@ class DataCustomCell: UITableViewCell {
         viewGeneralContainer.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -40).isActive = true
         viewGeneralContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -32).isActive = true
          
-        let layerBack = setGradientBackground(container: viewGeneralContainer)
+        _ = setGradientBackground(container: viewGeneralContainer)
         
         
         viewGeneralContainer.addSubview(avatar)
@@ -154,9 +161,16 @@ class DataCustomCell: UITableViewCell {
         lblLastSession.leadingAnchor.constraint(equalTo: lblDay.leadingAnchor).isActive = true
     }
     
+    @objc func goToProfileInformation() {
+        delegate?.avatar()
+    }
+    
+    @objc func goToNotificationInformation() {
+        delegate?.imgNotification()
+    }
+    
     func setGradientBackground(container: UIView) -> CAGradientLayer{
         let gradientLayer = CAGradientLayer()
-        print("::: \(container.bounds)")
         gradientLayer.frame = CGRect(x: 0, y: 0, width: (container.frame.width * 1.1), height: 170)
         gradientLayer.colors = [UIColor(red: 0.79, green: 0.69, blue: 0.99, alpha: 1.00).cgColor,
                                 UIColor(red: 0.42, green: 0.19, blue: 1.00, alpha: 1.00).cgColor]

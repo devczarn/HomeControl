@@ -1,5 +1,5 @@
 //
-//  TodayNotificationCustomCell.swift
+//  NewsNotificationCustomCell.swift
 //  HomeControl
 //
 //  Created by Cesar  Perez Catalan on 07/02/23.
@@ -8,16 +8,14 @@
 import UIKit
 import Alamofire
 
-class TodayNotificationCustomCell: UITableViewCell {
+class NewsNotificationCustomCell: UITableViewCell {
 
-    static let identifier = "TodayNotificationCustomCell"
+    static let identifier = "NewsNotificationCustomCell"
     
     var tableView = UITableView()
     
-    let titulo = ["Revisa tu horario y no pierdas clases.","Cafeteria abierta desde las 06:30 am.","No olvides que tu app es tu acceso al campus"]
-    let subTitulo = ["Hace 3 hrs.","Hace 4 hrs.","Hace 6 hrs."]
-    
-    
+    let titulo = ["Bienvenido al ciclo escolar 2022-2023","Ahora: Evento de bienvenida"]
+    let subTitulo = ["Hace 10 mins.","Hace 30 mins."]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,14 +33,14 @@ class TodayNotificationCustomCell: UITableViewCell {
         tableView.delegate = self
         tableView.dataSource = self
         contentView.addSubview(tableView)
-        tableView.frame = CGRect(x: 0, y: 0, width: 350, height: 250)
+        tableView.frame = CGRect(x: 0, y: 0, width: 350, height: 120)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(ViewNotificationCustomCell.self, forCellReuseIdentifier: ViewNotificationCustomCell.identifier)
         tableView.separatorStyle = .singleLine
     }
 }
 
-extension TodayNotificationCustomCell: UITableViewDelegate, UITableViewDataSource{
+extension NewsNotificationCustomCell: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titulo.count
@@ -64,6 +62,7 @@ extension TodayNotificationCustomCell: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-
+    
+    
 }
 

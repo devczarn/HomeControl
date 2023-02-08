@@ -11,6 +11,7 @@ import Alamofire
 class PopularCustomCell: UITableViewCell {
 
     static let identifier = "PopularCustomCell"
+    var delegate: HomeViewProtocool?
     
     lazy var viewGeneralContainer: UIView = {
         let view = UIView()
@@ -26,34 +27,58 @@ class PopularCustomCell: UITableViewCell {
         return label
     }()
     
-    lazy var btnSports: UIButton = {
-        let btn = UIButton()
-        btn.layer.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00).cgColor
-        btn.layer.cornerRadius = 14
-        btn.setTitle("Deportes", for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-        btn.setTitleColor(UIColor(red: 0.59, green: 0.04, blue: 0.20, alpha: 1.00), for: .normal)
-        return btn
+    lazy var backgroudlayer: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
+        return view
     }()
     
-    lazy var btnComedy: UIButton = {
-        let btn = UIButton()
-        btn.layer.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00).cgColor
-        btn.layer.cornerRadius = 14
-        btn.setTitle("Comedia", for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-        btn.setTitleColor(UIColor(red: 0.59, green: 0.04, blue: 0.20, alpha: 1.00), for: .normal)
-        return btn
+    lazy var backgroudlayer2: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
+        return view
     }()
     
-    lazy var btnGamers: UIButton = {
-        let btn = UIButton()
-        btn.layer.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00).cgColor
-        btn.layer.cornerRadius = 14
-        btn.setTitle("Gamers", for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-        btn.setTitleColor(UIColor(red: 0.59, green: 0.04, blue: 0.20, alpha: 1.00), for: .normal)
-        return btn
+    lazy var backgroudlayer3: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
+        return view
+    }()
+    
+    lazy var btnSports: UIImageView = {
+        let img = UIImageView()
+        img.contentMode = .scaleAspectFit
+        img.clipsToBounds = true
+        img.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
+        img.image = UIImage(named: "Item_10")
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.goToSportsInformation))
+        img.addGestureRecognizer(tapGR)
+        img.isUserInteractionEnabled = true
+        return img
+    }()
+    
+    lazy var btnComedy: UIImageView = {
+        let img = UIImageView()
+        img.contentMode = .scaleAspectFit
+        img.clipsToBounds = true
+        img.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
+        img.image = UIImage(named: "Item_7")
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.goToComedyInformation))
+        img.addGestureRecognizer(tapGR)
+        img.isUserInteractionEnabled = true
+        return img
+    }()
+    
+    lazy var btnGamers: UIImageView = {
+        let img = UIImageView()
+        img.contentMode = .scaleAspectFit
+        img.clipsToBounds = true
+        img.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
+        img.image = UIImage(named: "Item_6")
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.goToGamersInformation))
+        img.addGestureRecognizer(tapGR)
+        img.isUserInteractionEnabled = true
+        return img
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -79,27 +104,63 @@ class PopularCustomCell: UITableViewCell {
         lblPopular.leadingAnchor.constraint(equalTo: viewGeneralContainer.leadingAnchor, constant: 10).isActive = true
         lblPopular.topAnchor.constraint(equalTo: viewGeneralContainer.topAnchor, constant: 10).isActive = true
         
-        viewGeneralContainer.addSubview(btnComedy)
+        viewGeneralContainer.addSubview(backgroudlayer2)
+        backgroudlayer2.translatesAutoresizingMaskIntoConstraints = false
+        backgroudlayer2.centerXAnchor.constraint(equalTo: viewGeneralContainer.centerXAnchor).isActive = true
+        backgroudlayer2.topAnchor.constraint(equalTo: viewGeneralContainer.topAnchor, constant: 60).isActive = true
+        backgroudlayer2.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        backgroudlayer2.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        backgroudlayer2.layer.cornerRadius = 14
+        
+        backgroudlayer2.addSubview(btnComedy)
         btnComedy.translatesAutoresizingMaskIntoConstraints = false
-        btnComedy.centerXAnchor.constraint(equalTo: viewGeneralContainer.centerXAnchor).isActive = true
-        btnComedy.topAnchor.constraint(equalTo: viewGeneralContainer.topAnchor, constant: 60).isActive = true
-        btnComedy.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        btnComedy.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        btnComedy.centerXAnchor.constraint(equalTo: backgroudlayer2.centerXAnchor).isActive = true
+        btnComedy.centerYAnchor.constraint(equalTo: backgroudlayer2.centerYAnchor).isActive = true
+        btnComedy.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        btnComedy.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-        viewGeneralContainer.addSubview(btnSports)
+        viewGeneralContainer.addSubview(backgroudlayer)
+        backgroudlayer.translatesAutoresizingMaskIntoConstraints = false
+        backgroudlayer.trailingAnchor.constraint(equalTo: backgroudlayer2.leadingAnchor, constant: -10).isActive = true
+        backgroudlayer.topAnchor.constraint(equalTo: viewGeneralContainer.topAnchor, constant: 60).isActive = true
+        backgroudlayer.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        backgroudlayer.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        backgroudlayer.layer.cornerRadius = 14
+        
+        backgroudlayer.addSubview(btnSports)
         btnSports.translatesAutoresizingMaskIntoConstraints = false
-        btnSports.trailingAnchor.constraint(equalTo: btnComedy.leadingAnchor, constant: -10).isActive = true
-        btnSports.topAnchor.constraint(equalTo: viewGeneralContainer.topAnchor, constant: 60).isActive = true
-        btnSports.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        btnSports.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        btnSports.centerXAnchor.constraint(equalTo: backgroudlayer.centerXAnchor).isActive = true
+        btnSports.centerYAnchor.constraint(equalTo: backgroudlayer.centerYAnchor).isActive = true
+        btnSports.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        btnSports.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-        viewGeneralContainer.addSubview(btnGamers)
+        viewGeneralContainer.addSubview(backgroudlayer3)
+        backgroudlayer3.translatesAutoresizingMaskIntoConstraints = false
+        backgroudlayer3.leadingAnchor.constraint(equalTo: backgroudlayer2.trailingAnchor, constant: 10).isActive = true
+        backgroudlayer3.topAnchor.constraint(equalTo: viewGeneralContainer.topAnchor, constant: 60).isActive = true
+        backgroudlayer3.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        backgroudlayer3.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        backgroudlayer3.layer.cornerRadius = 14
+        
+        backgroudlayer3.addSubview(btnGamers)
         btnGamers.translatesAutoresizingMaskIntoConstraints = false
-        btnGamers.leadingAnchor.constraint(equalTo: btnComedy.trailingAnchor, constant: 10).isActive = true
-        btnGamers.topAnchor.constraint(equalTo: viewGeneralContainer.topAnchor, constant: 60).isActive = true
-        btnGamers.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        btnGamers.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        btnGamers.centerXAnchor.constraint(equalTo: backgroudlayer3.centerXAnchor).isActive = true
+        btnGamers.centerYAnchor.constraint(equalTo: backgroudlayer3.centerYAnchor).isActive = true
+        btnGamers.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        btnGamers.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
+    }
+    
+    @objc func goToSportsInformation() {
+        delegate?.btnSports()
+    }
+    
+    @objc func goToComedyInformation() {
+        delegate?.btnComedy()
+    }
+    
+    @objc func goToGamersInformation() {
+        delegate?.btnGamers()
     }
     
 }

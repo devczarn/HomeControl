@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Alamofire
 
-class HomeViewController:UIViewController{
+class HomeViewController:UIViewController, HomeViewProtocool{
     
     var tableView = UITableView()
     var activeSection = 0
@@ -19,10 +19,18 @@ class HomeViewController:UIViewController{
         
         setupView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Inicio"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
+    }
 
     func setupView(){
-        
-        title = "Inicio"
         configureNavigation()
         view.backgroundColor = UIColor(red: 0.93, green: 0.92, blue: 0.88, alpha: 1.00)
         tableView.delegate = self
@@ -30,11 +38,10 @@ class HomeViewController:UIViewController{
         tableView.register(DataCustomCell.self, forCellReuseIdentifier: DataCustomCell.identifier)
         tableView.register(CategoriesCustomCell.self, forCellReuseIdentifier: CategoriesCustomCell.identifier)
         tableView.register(PopularCustomCell.self, forCellReuseIdentifier: PopularCustomCell.identifier)
-        
+
         view.addSubview(tableView)
         tableView.frame = view.bounds
         tableView.allowsSelection = false
-        tableView.backgroundColor = .white
         tableView.separatorStyle = .none
     }
     
@@ -59,17 +66,19 @@ extension HomeViewController:UITableViewDataSource, UITableViewDelegate{
         if activeSection == 0 {
             activeSection = 1
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DataCustomCell.identifier, for: indexPath) as? DataCustomCell else { return UITableViewCell() }
+            cell.delegate = self
             return cell
         } else if activeSection == 1 {
             activeSection = 2
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoriesCustomCell.identifier, for: indexPath) as? CategoriesCustomCell else { return UITableViewCell() }
+            cell.delegate = self
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PopularCustomCell.identifier, for: indexPath) as? PopularCustomCell else { return UITableViewCell() }
+            cell.delegate = self
             return cell
         }
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
@@ -83,4 +92,12 @@ extension HomeViewController:UITableViewDataSource, UITableViewDelegate{
         return 3
     }
 
+}
+
+extension UIViewController {
+    
+    func customizeNavigation(){
+        navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
 }

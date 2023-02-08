@@ -14,6 +14,10 @@ class ViewCategories: UIViewController {
     
     let rooms = ["A-2","F-2","L-2","B-12","H-5"]
     
+    let days = ["L, M, X, J, V","L, V","M, V","X","J, V"]
+    
+    let hours = ["03:00 pm","12:00 pm","07:00 am","01:00 pm","02:00 pm"]
+    
     lazy var tableView: UITableView = {
         let table = UITableView()
         return table
@@ -28,7 +32,6 @@ class ViewCategories: UIViewController {
     func setupView() {
         
         title = "Categorías"
-        tableView.backgroundColor = .white
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(ViewCategoriesCustomCell.self, forCellReuseIdentifier: ViewCategoriesCustomCell.identifier)
@@ -53,8 +56,8 @@ extension ViewCategories:UITableViewDataSource, UITableViewDelegate{
             return UITableViewCell()
         }
         
-        var category = categories[indexPath.row]
-        var room = rooms[indexPath.row]
+        let category = categories[indexPath.row]
+        let room = rooms[indexPath.row]
         cell.configure(category: category,room: room )
 
         return cell
@@ -66,5 +69,10 @@ extension ViewCategories:UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.showData(parentView: self.view, dataModel: GoalsModel(category: categories[indexPath.row], room: rooms[indexPath.row], hour:hours[indexPath.row], days: days[indexPath.row]))
+
     }
+
 }
+

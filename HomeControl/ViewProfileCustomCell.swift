@@ -1,16 +1,16 @@
 //
-//  ViewCategoriesCustomCell.swift
+//  ViewProfileCustomCell.swift
 //  HomeControl
 //
-//  Created by Cesar  Perez Catalan on 24/01/23.
+//  Created by Cesar  Perez Catalan on 07/02/23.
 //
 
 import UIKit
 import Alamofire
 
-class ViewCategoriesCustomCell: UITableViewCell {
+class ViewProfileCustomCell: UITableViewCell {
 
-    static let identifier = "ViewCategoriesCustomCell"
+    static let identifier = "ViewProfileCustomCell"
     
     lazy var viewContainer: UIView = {
         let view = UIView()
@@ -23,15 +23,7 @@ class ViewCategoriesCustomCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .left
-        label.font = UIFont(name: "Helveticaneue-bold", size: 24)
-        return label
-    }()
-    
-    lazy var lblRoom: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.textAlignment = .left
-        label.font = UIFont(name: "Helveticaneue", size: 12)
+        label.font = UIFont(name: "Helveticaneue-bold", size: 16)
         return label
     }()
     
@@ -40,6 +32,14 @@ class ViewCategoriesCustomCell: UITableViewCell {
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
         img.image = UIImage(named: "Item_3")
+        return img
+    }()
+    
+    lazy var imgIcon: UIImageView = {
+        let img = UIImageView()
+        img.contentMode = .scaleAspectFill
+        img.clipsToBounds = true
+        img.tintColor = .black
         return img
     }()
     
@@ -55,36 +55,36 @@ class ViewCategoriesCustomCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(category: String,room: String){
+    func configure(category: String,image: String){
         lblCategory.text = category
-        lblRoom.text = "Aula: \(room)"
+        imgIcon.image = UIImage(systemName: image)
     }
     
     func setupCell(){
         
         contentView.addSubview(viewContainer)
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
-        viewContainer.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        viewContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
         viewContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        viewContainer.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -32).isActive = true
-        viewContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -8).isActive = true
+        viewContainer.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -38).isActive = true
+        viewContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -10).isActive = true
         
         contentView.addSubview(lblCategory)
         lblCategory.translatesAutoresizingMaskIntoConstraints = false
-        lblCategory.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 10).isActive = true
+        lblCategory.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 40).isActive = true
         lblCategory.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor).isActive = true
         
-        contentView.addSubview(lblRoom)
-        lblRoom.translatesAutoresizingMaskIntoConstraints = false
-        lblRoom.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 10).isActive = true
-        lblRoom.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor, constant: 20).isActive = true
+        contentView.addSubview(imgIcon)
+        imgIcon.translatesAutoresizingMaskIntoConstraints = false
+        imgIcon.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 10).isActive = true
+        imgIcon.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor).isActive = true
         
         contentView.addSubview(imgNext)
         imgNext.translatesAutoresizingMaskIntoConstraints = false
-        imgNext.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        imgNext.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        imgNext.layer.cornerRadius = 20.00
-        imgNext.leadingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant:-80).isActive = true
+        imgNext.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        imgNext.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        imgNext.layer.cornerRadius = 12.5
+        imgNext.leadingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant:-40).isActive = true
         imgNext.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor).isActive = true
         
     }
