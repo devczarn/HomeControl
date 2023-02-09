@@ -36,7 +36,7 @@ class ProfileCategoriesCustomCell: UITableViewCell {
         tableView.dataSource = self
         tableView.backgroundColor = .white
         contentView.addSubview(tableView)
-        tableView.frame = CGRect(x: 0, y: 0, width: 300, height: 500)
+        tableView.frame = CGRect(x: 0, y: 0, width: 350, height: 500)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(ViewProfileCustomCell.self, forCellReuseIdentifier: ViewProfileCustomCell.identifier)
         tableView.separatorStyle = .none
